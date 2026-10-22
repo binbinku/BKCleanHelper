@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="244" viewBox="0 0 900 244" role="img" aria-label="Cleaning flow: start, 3-second countdown, 60-second cleaning, automatic restore; hold Control-Option-Command-U for 2 seconds to exit early">
+  <title>Cleaning flow</title>
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+    .bg { fill: #f6f8fa; }
+    .card { fill: #ffffff; stroke: #d0d7de; }
+    .acard { fill: #ddf4ff; stroke: #0969da; }
+    .gcard { fill: #dafbe1; stroke: #1a7f37; }
+    .t { fill: #1f2328; }
+    .m { fill: #59636e; }
+    .a { fill: #0969da; }
+    .g { fill: #1a7f37; }
+    .ln { stroke: #8c959f; fill: none; }
+    .al { stroke: #0969da; fill: none; }
+    .mk { fill: #8c959f; }
+    .amk { fill: #0969da; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #161b22; }
+      .card { fill: #0d1117; stroke: #30363d; }
+      .acard { fill: #121d2f; stroke: #4493f8; }
+      .gcard { fill: #12261e; stroke: #3fb950; }
+      .t { fill: #e6edf3; }
+      .m { fill: #9198a1; }
+      .a { fill: #4493f8; }
+      .g { fill: #3fb950; }
+      .ln { stroke: #656c76; }
+      .al { stroke: #4493f8; }
+      .mk { fill: #656c76; }
+      .amk { fill: #4493f8; }
+    }
+  </style>
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="mk" d="M0 0 L10 5 L0 10 z"/></marker>
+    <marker id="aar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="amk" d="M0 0 L10 5 L0 10 z"/></marker>
+  </defs>
+  <rect class="bg" width="900" height="244" rx="16"/>
+
+  <rect class="card" x="30" y="32" width="180" height="112" rx="12" stroke-width="1.2"/>
+  <text class="m" x="48" y="58" font-size="12" font-weight="600">STEP 1</text>
+  <text class="t" x="48" y="86" font-size="17" font-weight="700">Start</text>
+  <text class="m" x="48" y="110" font-size="13">From the menu bar</text>
+  <text class="m" x="48" y="128" font-size="13">or the main window</text>
+
+  <rect class="card" x="250" y="32" width="180" height="112" rx="12" stroke-width="1.2"/>
+  <text class="m" x="268" y="58" font-size="12" font-weight="600">STEP 2</text>
+  <text class="t" x="268" y="86" font-size="17" font-weight="700">3 s countdown</text>
+  <text class="m" x="268" y="110" font-size="13">Release all keys</text>
+  <text class="m" x="268" y="128" font-size="13">Cancel anytime</text>
+
+  <rect class="acard" x="470" y="32" width="180" height="112" rx="12" stroke-width="1.6"/>
+  <text class="a" x="488" y="58" font-size="12" font-weight="600">STEP 3</text>
+  <text class="t" x="488" y="86" font-size="17" font-weight="700">60 s cleaning</text>
+  <text class="m" x="488" y="110" font-size="13">Keyboard &amp; trackpad</text>
+  <text class="m" x="488" y="128" font-size="13">paused, external too</text>
+
+  <rect class="gcard" x="690" y="32" width="180" height="112" rx="12" stroke-width="1.6"/>
+  <text class="g" x="708" y="58" font-size="12" font-weight="600">DONE</text>
+  <text class="t" x="708" y="86" font-size="17" font-weight="700">Auto restore</text>
+  <text class="m" x="708" y="110" font-size="13">Input is back</text>
+  <text class="m" x="708" y="128" font-size="13">Nothing to do</text>
+
+  <path class="ln" d="M214 88 H244" stroke-width="1.6" marker-end="url(#ar)"/>
+  <path class="ln" d="M434 88 H464" stroke-width="1.6" marker-end="url(#ar)"/>
+  <path class="ln" d="M654 88 H684" stroke-width="1.6" marker-end="url(#ar)"/>
+
+  <path class="al" d="M560 146 V190 H780 V152" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#aar)"/>
+  <text class="a" x="670" y="216" text-anchor="middle" font-size="13" font-weight="600">Exit early: hold ⌃⌥⌘U for 2 s</text>
+</svg>

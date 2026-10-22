@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="244" viewBox="0 0 900 244" role="img" aria-label="清洁流程：开始清洁，3 秒准备，60 秒清洁，自动恢复；按住 ⌃⌥⌘U 两秒可提前结束">
+  <title>清洁流程</title>
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Segoe UI", Helvetica, Arial, sans-serif; }
+    .bg { fill: #f6f8fa; }
+    .card { fill: #ffffff; stroke: #d0d7de; }
+    .acard { fill: #ddf4ff; stroke: #0969da; }
+    .gcard { fill: #dafbe1; stroke: #1a7f37; }
+    .t { fill: #1f2328; }
+    .m { fill: #59636e; }
+    .a { fill: #0969da; }
+    .g { fill: #1a7f37; }
+    .ln { stroke: #8c959f; fill: none; }
+    .al { stroke: #0969da; fill: none; }
+    .mk { fill: #8c959f; }
+    .amk { fill: #0969da; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #161b22; }
+      .card { fill: #0d1117; stroke: #30363d; }
+      .acard { fill: #121d2f; stroke: #4493f8; }
+      .gcard { fill: #12261e; stroke: #3fb950; }
+      .t { fill: #e6edf3; }
+      .m { fill: #9198a1; }
+      .a { fill: #4493f8; }
+      .g { fill: #3fb950; }
+      .ln { stroke: #656c76; }
+      .al { stroke: #4493f8; }
+      .mk { fill: #656c76; }
+      .amk { fill: #4493f8; }
+    }
+  </style>
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="mk" d="M0 0 L10 5 L0 10 z"/></marker>
+    <marker id="aar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="amk" d="M0 0 L10 5 L0 10 z"/></marker>
+  </defs>
+  <rect class="bg" width="900" height="244" rx="16"/>
+
+  <rect class="card" x="30" y="32" width="180" height="112" rx="12" stroke-width="1.2"/>
+  <text class="m" x="48" y="58" font-size="12" font-weight="600">第 1 步</text>
+  <text class="t" x="48" y="86" font-size="17" font-weight="700">开始清洁</text>
+  <text class="m" x="48" y="110" font-size="13">菜单栏或主窗口</text>
+  <text class="m" x="48" y="128" font-size="13">点击「开始清洁」</text>
+
+  <rect class="card" x="250" y="32" width="180" height="112" rx="12" stroke-width="1.2"/>
+  <text class="m" x="268" y="58" font-size="12" font-weight="600">第 2 步</text>
+  <text class="t" x="268" y="86" font-size="17" font-weight="700">3 秒准备</text>
+  <text class="m" x="268" y="110" font-size="13">松开所有按键和鼠标</text>
+  <text class="m" x="268" y="128" font-size="13">期间可以取消</text>
+
+  <rect class="acard" x="470" y="32" width="180" height="112" rx="12" stroke-width="1.6"/>
+  <text class="a" x="488" y="58" font-size="12" font-weight="600">第 3 步</text>
+  <text class="t" x="488" y="86" font-size="17" font-weight="700">60 秒清洁</text>
+  <text class="m" x="488" y="110" font-size="13">键盘与触摸板暂停</text>
+  <text class="m" x="488" y="128" font-size="13">含外接键盘与鼠标</text>
+
+  <rect class="gcard" x="690" y="32" width="180" height="112" rx="12" stroke-width="1.6"/>
+  <text class="g" x="708" y="58" font-size="12" font-weight="600">完成</text>
+  <text class="t" x="708" y="86" font-size="17" font-weight="700">自动恢复</text>
+  <text class="m" x="708" y="110" font-size="13">输入恢复正常</text>
+  <text class="m" x="708" y="128" font-size="13">无需任何操作</text>
+
+  <path class="ln" d="M214 88 H244" stroke-width="1.6" marker-end="url(#ar)"/>
+  <path class="ln" d="M434 88 H464" stroke-width="1.6" marker-end="url(#ar)"/>
+  <path class="ln" d="M654 88 H684" stroke-width="1.6" marker-end="url(#ar)"/>
+
+  <path class="al" d="M560 146 V190 H780 V152" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#aar)"/>
+  <text class="a" x="670" y="216" text-anchor="middle" font-size="13" font-weight="600">提前结束：按住 ⌃⌥⌘U 两秒</text>
+</svg>

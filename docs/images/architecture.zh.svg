@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="310" viewBox="0 0 900 310" role="img" aria-label="安全架构：独立的拦截子进程负责屏蔽输入和计时，主程序负责界面，后台看门狗在心跳中断时结束子进程">
+  <title>安全架构</title>
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Segoe UI", Helvetica, Arial, sans-serif; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    .bg { fill: #f6f8fa; }
+    .card { fill: #ffffff; stroke: #d0d7de; }
+    .acard { fill: #ddf4ff; stroke: #0969da; }
+    .t { fill: #1f2328; }
+    .m { fill: #59636e; }
+    .a { fill: #0969da; }
+    .g { fill: #1a7f37; }
+    .ln { stroke: #8c959f; fill: none; }
+    .rl { stroke: #cf222e; fill: none; }
+    .r { fill: #cf222e; }
+    .mk { fill: #8c959f; }
+    .rmk { fill: #cf222e; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #161b22; }
+      .card { fill: #0d1117; stroke: #30363d; }
+      .acard { fill: #121d2f; stroke: #4493f8; }
+      .t { fill: #e6edf3; }
+      .m { fill: #9198a1; }
+      .a { fill: #4493f8; }
+      .g { fill: #3fb950; }
+      .ln { stroke: #656c76; }
+      .rl { stroke: #f85149; }
+      .r { fill: #f85149; }
+      .mk { fill: #656c76; }
+      .rmk { fill: #f85149; }
+    }
+  </style>
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="mk" d="M0 0 L10 5 L0 10 z"/></marker>
+    <marker id="rar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="rmk" d="M0 0 L10 5 L0 10 z"/></marker>
+  </defs>
+  <rect class="bg" width="900" height="310" rx="16"/>
+
+  <!-- input devices -->
+  <rect class="card" x="30" y="80" width="170" height="110" rx="12" stroke-width="1.2"/>
+  <text class="t" x="48" y="112" font-size="16" font-weight="700">输入设备</text>
+  <text class="m" x="48" y="140" font-size="13">内置键盘 · 触摸板</text>
+  <text class="m" x="48" y="162" font-size="13">外接键盘与鼠标</text>
+  <path class="ln" d="M202 135 H236" stroke-width="1.6" marker-end="url(#ar)"/>
+
+  <!-- worker -->
+  <rect class="acard" x="240" y="50" width="270" height="170" rx="12" stroke-width="1.6"/>
+  <text class="a" x="258" y="84" font-size="17" font-weight="700">拦截子进程</text>
+  <text class="m mono" x="258" y="104" font-size="12">--input-worker</text>
+  <text class="t" x="258" y="134" font-size="13">· HID 级事件拦截，最先处理</text>
+  <text class="t" x="258" y="156" font-size="13">· 连续时钟计时，睡眠也计入</text>
+  <text class="t" x="258" y="178" font-size="13">· 检测 ⌃⌥⌘U 长按 2 秒</text>
+  <text class="t" x="258" y="200" font-size="13">· 到期或退出 → 立即放行</text>
+
+  <!-- main app -->
+  <rect class="card" x="660" y="50" width="210" height="120" rx="12" stroke-width="1.2"/>
+  <text class="t" x="678" y="84" font-size="17" font-weight="700">主程序</text>
+  <text class="m" x="678" y="112" font-size="13">菜单栏 · 主窗口</text>
+  <text class="m" x="678" y="134" font-size="13">全屏倒计时遮罩</text>
+  <text class="m" x="678" y="156" font-size="13">权限检查</text>
+
+  <path class="ln" d="M658 95 H514" stroke-width="1.6" marker-end="url(#ar)"/>
+  <text class="m" x="585" y="85" text-anchor="middle" font-size="11">启动 · stop（stdin）</text>
+  <path class="ln" d="M512 140 H656" stroke-width="1.6" marker-end="url(#ar)"/>
+  <text class="m" x="585" y="158" text-anchor="middle" font-size="11">ready · 心跳（stdout）</text>
+
+  <!-- watchdog -->
+  <path class="ln" d="M765 170 V200" stroke-width="1.2" stroke-dasharray="3 3"/>
+  <rect class="card" x="660" y="200" width="210" height="88" rx="12" stroke-width="1.2"/>
+  <text class="t" x="678" y="228" font-size="15" font-weight="700">后台看门狗</text>
+  <text class="m" x="678" y="252" font-size="13">心跳中断超过 2 秒</text>
+  <text class="m" x="678" y="272" font-size="13">或超过 64 秒 → 结束子进程</text>
+  <path class="rl" d="M658 244 H375 V224" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#rar)"/>
+  <text class="r" x="520" y="236" text-anchor="middle" font-size="12" font-weight="600">强制结束</text>
+
+  <!-- note -->
+  <circle class="g" cx="36" cy="251" r="4"/>
+  <text class="m" x="48" y="256" font-size="13">子进程一旦退出，系统会自动移除</text>
+  <text class="m" x="48" y="278" font-size="13">它的事件拦截，输入立即恢复。</text>
+</svg>
