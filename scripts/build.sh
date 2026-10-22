@@ -19,14 +19,18 @@ xattr -cr "$TASK_APP"
 codesign --force --sign - --identifier io.github.binbinku.BKCleanHelper "$TASK_APP"
 codesign --verify --deep --strict "$TASK_APP"
 TASK_VERSION="$(/usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" Resources/Info.plist)"
-TASK_ZIP="BKCleanHelper-$TASK_VERSION.zip"
-rm -f "$TASK_ROOT/outputs/$TASK_ZIP"
-ditto -c -k --norsrc --noextattr --noacl --keepParent "$TASK_APP" "$TASK_ROOT/outputs/$TASK_ZIP"
-(cd "$TASK_ROOT/outputs" && shasum -a 256 "$TASK_ZIP" > "$TASK_ZIP.sha256")
+TASK_DMG="BKCleanHelper-$TASK_VERSION.dmg"
+TASK_DMG_ROOT="$TASK_ROOT/work/dmg"
+rm -rf "$TASK_DMG_ROOT" "$TASK_ROOT/outputs/$TASK_DMG"
+mkdir -p "$TASK_DMG_ROOT"
+ditto --norsrc --noextattr --noacl "$TASK_APP" "$TASK_DMG_ROOT/BKCleanHelper.app"
+ln -s /Applications "$TASK_DMG_ROOT/Applications"
+hdiutil create -volname "BKCleanHelper $TASK_VERSION" -srcfolder "$TASK_DMG_ROOT" -fs HFS+ -format UDZO -quiet "$TASK_ROOT/outputs/$TASK_DMG"
+(cd "$TASK_ROOT/outputs" && shasum -a 256 "$TASK_DMG" > "$TASK_DMG.sha256")
 cp README.md "$TASK_ROOT/outputs/使用说明.md"
 mkdir -p work/BKCleanHelper-Source
 cp Package.swift README.md .gitignore work/BKCleanHelper-Source/
 cp -R Sources Tests Resources scripts work/BKCleanHelper-Source/
 ditto -c -k --keepParent work/BKCleanHelper-Source "$TASK_ROOT/outputs/BKCleanHelper-Source.zip"
 echo "已构建：$TASK_APP"
-echo "发布包：$TASK_ROOT/outputs/$TASK_ZIP"
+echo "发布包：$TASK_ROOT/outputs/$TASK_DMG"

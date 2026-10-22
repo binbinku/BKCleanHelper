@@ -6,3 +6,4 @@ outputs/
 *.app
 *.zip
 xcuserdata/
+*.dmg

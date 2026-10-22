@@ -43,9 +43,9 @@ Wiping your keyboard usually means typing gibberish into whatever app is in fron
 
 ### 1. 📦 Download & install
 
-1. Download the latest `BKCleanHelper-<version>.zip` from [**Releases**](https://github.com/binbinku/BKCleanHelper/releases/latest)
-2. Unzip it and **drag `BKCleanHelper.app` into Applications** (don't move it afterwards, or you may need to grant permissions again)
-3. Double-click to open
+1. Download the latest `BKCleanHelper-<version>.dmg` from [**Releases**](https://github.com/binbinku/BKCleanHelper/releases/latest)
+2. Open the DMG and **drag `BKCleanHelper` onto the Applications folder** next to it (don't move it afterwards, or you may need to grant permissions again)
+3. Eject the DMG and open BKCleanHelper from Applications
 
 Runs on macOS 13 and later, on both Apple silicon and Intel (universal binary).
 

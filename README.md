@@ -40,9 +40,9 @@ macOS 菜单栏小工具：临时暂停键盘、触摸板和外接键鼠 60 秒�
 
 ### 1. 📦 下载安装
 
-1. 前往 [**Releases**](https://github.com/binbinku/BKCleanHelper/releases/latest) 下载最新的 `BKCleanHelper-版本号.zip`
-2. 解压，把 `BKCleanHelper.app` **拖进「应用程序」文件夹**（之后不要再移动它，否则可能需要重新授权）
-3. 双击打开
+1. 前往 [**Releases**](https://github.com/binbinku/BKCleanHelper/releases/latest) 下载最新的 `BKCleanHelper-版本号.dmg`
+2. 双击打开 DMG，把 `BKCleanHelper` **拖到旁边的「Applications」文件夹**（之后不要再移动它，否则可能需要重新授权）
+3. 推出 DMG，在「应用程序」中双击打开 BKCleanHelper
 
 支持 macOS 13 及以上，Apple 芯片和 Intel 都能运行（Universal 包）。
 
