@@ -1,0 +1,8 @@
+.build/
+.swiftpm/
+work/
+outputs/
+.DS_Store
+*.app
+*.zip
+xcuserdata/
