@@ -38,9 +38,26 @@ macOS 菜单栏小工具：临时暂停键盘、触摸板和外接键鼠 60 秒�
 
 ## 🚀 快速开始
 
-### 1. 构建
+### 1. 📦 下载安装
 
-需要 macOS 13 或更新版本，以及包含 Swift 6 工具链的 Xcode 命令行工具（Xcode 16 或更新版本）。
+1. 前往 [**Releases**](https://github.com/binbinku/BKCleanHelper/releases/latest) 下载最新的 `BKCleanHelper-版本号.zip`
+2. 解压，把 `BKCleanHelper.app` **拖进「应用程序」文件夹**（之后不要再移动它，否则可能需要重新授权）
+3. 双击打开
+
+支持 macOS 13 及以上，Apple 芯片和 Intel 都能运行（Universal 包）。
+
+> [!IMPORTANT]
+> **第一次打开会被 macOS 拦截**，提示「无法验证开发者」。这是因为本项目没有付费的 Apple 开发者签名和公证，并不代表应用有问题，源码都在这个仓库里。放行方法：
+>
+> - **macOS 15 及以上**：双击后在提示框里点「完成」，然后打开 **系统设置 → 隐私与安全性**，滚动到「安全性」部分，点击「仍要打开」，输入密码后再次确认「打开」
+> - **macOS 13 / 14**：在「应用程序」中**右键点击** BKCleanHelper → 「打开」→ 再点「打开」
+>
+> 只需要操作一次。**不需要、也不应该**为此关闭 SIP 或 Gatekeeper。
+
+<details>
+<summary>🔨 也可以从源码构建</summary>
+
+需要 macOS 13 或更新版本，以及 Xcode 16 或更新版本（构建 Universal 包需要完整的 Xcode）。
 
 ```sh
 git clone https://github.com/binbinku/BKCleanHelper.git
@@ -48,10 +65,9 @@ cd BKCleanHelper
 bash scripts/build.sh
 ```
 
-构建完成后得到 `outputs/BKCleanHelper.app`。建议先把它放到固定位置（比如「应用程序」文件夹），再进行授权。
+构建完成后得到 `outputs/BKCleanHelper.app`。自己构建的应用使用本机临时签名，重新构建后可能需要在系统设置里重新授权。
 
-> [!NOTE]
-> 构建产物使用本机临时签名（ad-hoc），没有经过 Apple 公证。重新构建、替换或移动应用后，可能需要在系统设置里重新授权。**不需要、也不应该**为此关闭 SIP 或 Gatekeeper。
+</details>
 
 ### 2. 授权
 
@@ -125,9 +141,9 @@ bash scripts/build.sh
 </details>
 
 <details>
-<summary><b>重新构建后，权限显示“未授权”？</b></summary>
+<summary><b>升级新版本或重新构建后，权限显示“未授权”？</b></summary>
 
-临时签名的应用每次重新构建后，系统可能会把它当成新的应用。在 **系统设置 → 隐私与安全性** 的「辅助功能」和「输入监控」中，删除旧的 BKCleanHelper 条目，再重新添加即可。
+应用没有固定的开发者签名，每个新版本都可能被系统当成新的应用。在 **系统设置 → 隐私与安全性** 的「辅助功能」和「输入监控」中，删除旧的 BKCleanHelper 条目，再重新添加即可。
 
 </details>
 
@@ -141,7 +157,7 @@ bash scripts/build.sh
 <details>
 <summary><b>支持 Intel Mac 吗？</b></summary>
 
-`build.sh` 会按本机架构构建，不是 Universal 包。理论上 macOS 13 以上都能构建运行，但实际效果请以实机验证为准，欢迎反馈 🙌
+支持。发布的是 Universal 包，Apple 芯片和 Intel 都能原生运行。如果你在 Intel Mac 上遇到问题，欢迎反馈 🙌
 
 </details>
 
@@ -150,7 +166,7 @@ bash scripts/build.sh
 ```text
 .
 ├── Sources/
-│   ├── BKCleanHelper/      # App 主程序：菜单栏、主窗口、遮罩、拦截子进程（可执行目标名沿用了早期名称）
+│   ├── BKCleanHelper/      # App 主程序：菜单栏、主窗口、遮罩、拦截子进程
 │   └── CleanCore/      # 纯逻辑：截止时间、提前结束检测、心跳与看门狗
 ├── Tests/CleanCoreTests/
 ├── Resources/Info.plist

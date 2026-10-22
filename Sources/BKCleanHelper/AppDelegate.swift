@@ -136,7 +136,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     @objc private func quit() { NSApp.terminate(nil) }
     @objc private func about() {
         NSApp.orderFrontStandardAboutPanel(options: [
-            .applicationName: "BKCleanHelper", .applicationVersion: "1.0",
+            .applicationName: "BKCleanHelper",
             .credits: NSAttributedString(string: "一分钟，安心擦一擦。\n键盘与触摸板清洁工具 · 完全本地运行"),
         ])
         NSApp.activate(ignoringOtherApps: true)

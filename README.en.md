@@ -41,9 +41,26 @@ Wiping your keyboard usually means typing gibberish into whatever app is in fron
 
 ## 🚀 Getting started
 
-### 1. Build
+### 1. 📦 Download & install
 
-Requires macOS 13 or later and the Xcode command line tools with a Swift 6 toolchain (Xcode 16 or later).
+1. Download the latest `BKCleanHelper-<version>.zip` from [**Releases**](https://github.com/binbinku/BKCleanHelper/releases/latest)
+2. Unzip it and **drag `BKCleanHelper.app` into Applications** (don't move it afterwards, or you may need to grant permissions again)
+3. Double-click to open
+
+Runs on macOS 13 and later, on both Apple silicon and Intel (universal binary).
+
+> [!IMPORTANT]
+> **macOS will block the first launch** with a message that the developer can't be verified. That's because this project isn't signed and notarized with a paid Apple Developer account — not because anything is wrong with the app, whose full source is in this repository. To allow it:
+>
+> - **macOS 15 and later**: click “Done” in the alert, open **System Settings → Privacy & Security**, scroll to the Security section, click “Open Anyway”, enter your password and confirm “Open”
+> - **macOS 13 / 14**: in Applications, **right-click** BKCleanHelper → “Open”, then click “Open” again
+>
+> You only need to do this once. You do **not** need to — and should not — disable SIP or Gatekeeper.
+
+<details>
+<summary>🔨 Or build from source</summary>
+
+Requires macOS 13 or later and Xcode 16 or later (the full Xcode is needed for the universal build).
 
 ```sh
 git clone https://github.com/binbinku/BKCleanHelper.git
@@ -51,10 +68,9 @@ cd BKCleanHelper
 bash scripts/build.sh
 ```
 
-This produces `outputs/BKCleanHelper.app`. Move it somewhere permanent (e.g. Applications) before granting permissions.
+This produces `outputs/BKCleanHelper.app`. Self-built copies are ad-hoc signed, so you may need to grant permissions again after rebuilding.
 
-> [!NOTE]
-> The build is ad-hoc signed and not notarized by Apple. After rebuilding, replacing or moving the app you may need to grant permissions again. You do **not** need to — and should not — disable SIP or Gatekeeper for it.
+</details>
 
 ### 2. Grant permissions
 
@@ -128,9 +144,9 @@ Try in this order:
 </details>
 
 <details>
-<summary><b>Permissions show as not granted after a rebuild?</b></summary>
+<summary><b>Permissions show as not granted after an update or rebuild?</b></summary>
 
-macOS may treat each ad-hoc signed build as a new app. In **System Settings → Privacy & Security**, remove the old BKCleanHelper entries under Accessibility and Input Monitoring, then add the app again.
+Without a fixed developer signature, macOS may treat each new version as a new app. In **System Settings → Privacy & Security**, remove the old BKCleanHelper entries under Accessibility and Input Monitoring, then add the app again.
 
 </details>
 
@@ -144,7 +160,7 @@ If a key or mouse button is still down when the tap starts, its “release” ev
 <details>
 <summary><b>Does it work on Intel Macs?</b></summary>
 
-`build.sh` builds for the current machine's architecture (not a universal binary). It should build and run on any Mac with macOS 13+, but please verify on real hardware — reports are welcome 🙌
+Yes. Releases are universal binaries that run natively on both Apple silicon and Intel. If you hit a problem on an Intel Mac, reports are welcome 🙌
 
 </details>
 
@@ -153,7 +169,7 @@ If a key or mouse button is still down when the tap starts, its “release” ev
 ```text
 .
 ├── Sources/
-│   ├── BKCleanHelper/      # The app: menu bar, main window, overlay, input worker (target keeps its early name)
+│   ├── BKCleanHelper/      # The app: menu bar, main window, overlay, input worker
 │   └── CleanCore/      # Pure logic: deadline, early-exit detection, heartbeat & watchdog
 ├── Tests/CleanCoreTests/
 ├── Resources/Info.plist
